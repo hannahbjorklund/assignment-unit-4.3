@@ -73,6 +73,7 @@ console.log(`Basket is ${basket}`);
 console.log("Removing 'pickles' from the basket (expect 'pickles'):", removeItem('pickles'));
 console.log("Removing 'banana' from basket (expect null):", removeItem('banana'));
 console.log(`Basket is now ${basket}`);
+empty();
 
 // DO NOT MODIFY
 // Used for automated testing
