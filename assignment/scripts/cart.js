@@ -32,10 +32,10 @@ addItem('salami');
 console.log("Listing all basket items:");
 listItems();
 
-
-
-
-
+//Testing empty
+console.log("Emptying basket.")
+empty();
+console.log(`Basket is now ${basket}`);
 
 
 // DO NOT MODIFY
