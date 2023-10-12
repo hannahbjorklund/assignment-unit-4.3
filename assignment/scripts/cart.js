@@ -5,8 +5,12 @@ console.log('***** Cart Functions *****');
 let basket = [];
 
 function addItem(item){
-    basket.push(item);
-    return true;
+    if(isFull){
+        return false;
+    } else {
+        basket.push(item);
+        return true;
+    }
 }
 
 function listItems(){
@@ -36,6 +40,25 @@ listItems();
 console.log("Emptying basket.")
 empty();
 console.log(`Basket is now ${basket}`);
+
+const maxItems = 5;
+
+function isFull(){
+    if(basket.length < maxItems){
+        return false;
+    }
+    return true;
+}
+
+//Testing isFull
+console.log("Basket is empty. Checking isFull (expect false):", isFull());
+addItem('cookies');
+addItem('chocolate');
+addItem('sushi');
+addItem('crackers');
+addItem('pickles');
+console.log("Basket has 5 items. Checking isFull (expect true):", isFull());
+
 
 
 // DO NOT MODIFY
