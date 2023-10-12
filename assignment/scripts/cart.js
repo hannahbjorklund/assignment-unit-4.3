@@ -3,13 +3,22 @@ console.log('***** Cart Functions *****');
 // We want to see how you are testing your code!!!
 
 let basket = [];
+const maxItems = 5;
 
-function addItem(item){
-    if(isFull){
+function isFull(){
+    if(basket.length < maxItems){
         return false;
     } else {
+        return true;
+    }
+}
+
+function addItem(item){
+    if(!isFull()){
         basket.push(item);
         return true;
+    } else {
+        return false;
     }
 }
 
@@ -21,6 +30,15 @@ function listItems(){
 
 function empty(){
     basket = [];
+}
+
+function removeItem(item){
+    let index = basket.indexOf(item);
+    if(index > -1){
+        basket.splice(index, 1);
+        return item;
+    }
+    return null;
 }
 
 //Testing addItem
@@ -41,15 +59,6 @@ console.log("Emptying basket.")
 empty();
 console.log(`Basket is now ${basket}`);
 
-const maxItems = 5;
-
-function isFull(){
-    if(basket.length < maxItems){
-        return false;
-    }
-    return true;
-}
-
 //Testing isFull
 console.log("Basket is empty. Checking isFull (expect false):", isFull());
 addItem('cookies');
@@ -59,7 +68,11 @@ addItem('crackers');
 addItem('pickles');
 console.log("Basket has 5 items. Checking isFull (expect true):", isFull());
 
-
+//Testing removeItem
+console.log(`Basket is ${basket}`);
+console.log("Removing 'pickles' from the basket (expect 'pickles'):", removeItem('pickles'));
+console.log("Removing 'banana' from basket (expect null):", removeItem('banana'));
+console.log(`Basket is now ${basket}`);
 
 // DO NOT MODIFY
 // Used for automated testing
